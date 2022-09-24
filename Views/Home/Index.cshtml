@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ScaffoldingTemplate.Models.User>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+
+	<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+	<p>
+		<a asp-action="Create">Create New</a>
+	</p>
+
+	@*
+		
+	Scaffolding template özellikle crud (Create,Read, Update, Delete)operasyonlarında  tasarım tarafında	zaman kazanmamaızı sağlar..
+
+	*@
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.UserId)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.UserName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Password)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Name)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.SurName)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.UserId)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.UserName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Password)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Name)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SurName)
+					</td>
+					<td>
+						@Html.ActionLink("Edit", "Edit", new {  id=item.UserId }) |
+						@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+						@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>
+</html>
